@@ -1165,12 +1165,12 @@ function objectType(value, path, resolve, traverseCallback) {
       }
     }
 
-    if (additionalProperties === false) {
+    if (properties[key]) {
+      props[key] = properties[key];
+    } else if (additionalProperties === false) {
       if (requiredProperties.indexOf(key) !== -1) {
         props[key] = properties[key];
       }
-    } else if (properties[key]) {
-      props[key] = properties[key];
     }
 
     var found; // then try patternProperties
